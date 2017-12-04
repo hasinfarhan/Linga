@@ -41,16 +41,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#quickpost">Add Bulletin</a>
+              <a class="nav-link js-scroll-trigger" href="#quickpost">Quick Post</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#post">Add Post</a>
+              <a class="nav-link js-scroll-trigger" href="#post">Detailed Post</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#newsfeed">News Feed</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+              <a class="nav-link js-scroll-trigger" href="#team">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -99,10 +99,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">See what's happening around</h2>
+            <h2 class="section-heading text-uppercase">News Feed</h2>
+            <h3 class="section-subheading text">See what's happening around</h3>
           </div>
         </div>
-        
+
       </div>
     </section>
 
@@ -114,11 +115,459 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Quick Bulletin</h2>
+            <h2 class="section-heading text-uppercase">Quick Post</h2>
             <h3 class="section-subheading text">Choose a category and provide some related info</h3>
           </div>
         </div>
-        <div class="row text-center">
+
+
+        <div class="navbar-nav text-uppercase ml-auto"  align="center">
+          <ul class="list-inline" >
+            <li class="list-inline-item" >
+              <div class="col-xs-4" >
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#phoneModal" class="" data-toggle="modal">
+                      <!-- Modal -->
+                      <div class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h3 class="modal-title" id="lineModalLabel">Please provide some information</h3>
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                          </div>
+                          <div class="modal-body">
+                                  <!-- content goes here -->
+                            <form>
+                                    <label class="radio-inline"><input type="radio" name="lost">Lost</label>
+                                    <label class="radio-inline"><input type="radio" name="found">Found</label>
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Your name</label>
+                                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Contact Number</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Mail ID</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Facebook ID</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputFile">Add an image</label>
+                                      <input type="file" id="exampleInputFile">
+                                      <p class="help-block">Example block-level help text here.</p>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox"> Check me out
+                                      </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                  </form>
+
+                          </div>
+                          <div class="modal-footer">
+                            <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                              <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                              </div>
+                              <div class="btn-group btn-delete hidden" role="group">
+                                <button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+                              </div>
+                              <div class="btn-group" role="group">
+                                <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                        <div class="caption" >
+                            <h4 class="" >Phone</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/phone.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+
+            <li class="list-inline-item">
+              <div class=" col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#moneybagModal" class="" data-toggle="modal">
+                      <!-- Modal -->
+                      <div class="modal fade" id="moneybagModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+                          </div>
+                          <div class="modal-body">
+                                  <!-- content goes here -->
+                            <form>
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputFile">File input</label>
+                                <input type="file" id="exampleInputFile">
+                                <p class="help-block">Example block-level help text here.</p>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox"> Check me out
+                                </label>
+                              </div>
+                              <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                              <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                              </div>
+                              <div class="btn-group btn-delete hidden" role="group">
+                                <button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+                              </div>
+                              <div class="btn-group" role="group">
+                                <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                        <div class="caption">
+                            <h4 class="">Moneybag</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/wallet.jpg" style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#squarespaceModal" class="" data-toggle="modal">
+                      <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                      	<div class="modal-content">
+                      		<div class="modal-header">
+                      			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                      			<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+                      		</div>
+                      		<div class="modal-body">
+
+                                  <!-- content goes here -->
+                      			<form>
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Email address</label>
+                                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Password</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputFile">File input</label>
+                                      <input type="file" id="exampleInputFile">
+                                      <p class="help-block">Example block-level help text here.</p>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox"> Check me out
+                                      </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                  </form>
+
+                      		</div>
+                      		<div class="modal-footer">
+                      			<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                      				<div class="btn-group" role="group">
+                      					<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                      				</div>
+                      				<div class="btn-group btn-delete hidden" role="group">
+                      					<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+                      				</div>
+                      				<div class="btn-group" role="group">
+                      					<button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                      				</div>
+                      			</div>
+                      		</div>
+                      	</div>
+                        </div>
+                      </div>
+                        <div class="caption">
+                            <h4 class="">I/D Card</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/idcard.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Passport</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/passport.jpg"   style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Camera</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/dslr.jpg"   style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Pet</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/pet.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Shoppingbag</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/shopping.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Credential</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/credential.png"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Jewellery</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/jewellery.png"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Umbrella</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/umbrella.jpg"   style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Briefcase</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/briefcase.jpg"   style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Schoolbag</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/schoolbag.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <li class="list-inline-item" >
+              <div class="col-xs-4" >
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class=""  >
+                        <div class="caption" >
+                            <h4 class="" >Vanitybag</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/vanity.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item" >
+              <div class="col-xs-4" >
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class=""  >
+                        <div class="caption" >
+                            <h4 class="" >Bike</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/bike.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Travelbag</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/travelbag.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Watch</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/watch.jpg"   style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Headphone</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/headphone.png"   style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="col-xs-4">
+                <div class="thumbnail">
+                    <!-- Place the anchor tag here to cover both your caption and image -->
+                    <a href="#newsfeed" class="">
+                        <div class="caption">
+                            <h4 class="">Garment</h4>
+                            </p>
+                        </div>
+                        <img src="static/landing/img/garment.jpg"  style="width:160px;height:140px;">
+                    </a>
+                    <!-- Anchor tag ends covering both image and caption -->
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+
+        <!--<div class="row text-center">
           <div class="col-md-4">
             <span class="fa-stack fa-4x">
               <i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -143,20 +592,20 @@
             <h4 class="service-heading">Web Security</h4>
             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
           </div>
-        </div>
+        </div>-->
       </div>
     </section>
 
     <!-- post -->
     <section class="bg-light" id="post">
       <div class="container">
-        <div class="row">
+       <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Detailed post</h2>
             <h3 class="section-subheading text">Add a post containing more details</h3>
           </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
               <div class="portfolio-hover">
@@ -241,7 +690,7 @@
               <p class="text-muted">Photography</p>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </section>
 
@@ -252,16 +701,15 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>ss/agency.min.css" rel="stylesheet"
+            <h2 class="section-heading text-uppercase">About Us</h2>
+         </div>
         </div>
         <div class="row">
           <div class="col-sm-4">
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-              <h4>Kay Garland</h4>
-              <p class="text-muted">Lead Designer</p>
+              <h4>Farhan Hasin</h4>
+              <p class="text-muted"></p>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                   <a href="#">
@@ -284,8 +732,8 @@
           <div class="col-sm-4">
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
-              <h4>Larry Parker</h4>
-              <p class="text-muted">Lead Marketer</p>
+              <h4>Fahim Shahriar Chowdhury</h4>
+              <p class="text-muted"></p>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                   <a href="#">
@@ -305,66 +753,9 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-              <h4>Diana Pertersen</h4>
-              <p class="text-muted">Lead Developer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Clients -->
-    <section class="py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Contact -->
     <section id="contact">
@@ -372,7 +763,6 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>
         <div class="row">
@@ -469,7 +859,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2017</span>
+            <span class="copyright">Copyright &copy; LinGa 2017</span>
           </div>
           <div class="col-md-4">
             <ul class="list-inline social-buttons">
@@ -520,12 +910,11 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                  <h2 class="text-uppercase">LInGa_BUET</h2>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
+                    <li>Date: December 2017</li>
                     <li>Client: Threads</li>
                     <li>Category: Illustration</li>
                   </ul>
@@ -554,12 +943,11 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                  <h2 class="text-uppercase">LinGa_BUET</h2>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
+                    <li>Date: December 2017</li>
                     <li>Client: Explore</li>
                     <li>Category: Graphic Design</li>
                   </ul>
@@ -588,12 +976,11 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                  <h2 class="text-uppercase">LinGa_BUET</h2>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
+                    <li>Date: December 2017</li>
                     <li>Client: Finish</li>
                     <li>Category: Identity</li>
                   </ul>
