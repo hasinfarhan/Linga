@@ -1,4 +1,4 @@
-#!/home/opangkteyo/Desktop/Developer/Git/Linga/projectenv/bin/python
+#!/home/opangkteyo/Developer/Project/Linga/projectenv/bin/python
 
 import sys
 import getopt

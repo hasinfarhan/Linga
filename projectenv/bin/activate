@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/opangkteyo/Desktop/Developer/Git/Linga/projectenv"
+VIRTUAL_ENV="/home/opangkteyo/Developer/Project/Linga/projectenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
