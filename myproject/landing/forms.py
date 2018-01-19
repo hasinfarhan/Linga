@@ -2,19 +2,6 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
-from bootcamp.settings import ALLOWED_SIGNUP_DOMAINS
-
-
-def SignupDomainValidator(value):
-    if '*' not in ALLOWED_SIGNUP_DOMAINS:
-        try:
-            domain = value[value.index("@"):]
-            if domain not in ALLOWED_SIGNUP_DOMAINS:
-                raise ValidationError('Invalid domain. Allowed domains on this network: {0}'.format(','.join(ALLOWED_SIGNUP_DOMAINS)))  # noqa: E501
-
-        except Exception:
-            raise ValidationError('Invalid domain. Allowed domains on this network: {0}'.format(','.join(ALLOWED_SIGNUP_DOMAINS)))  # noqa: E501
-
 
 def ForbiddenUsernamesValidator(value):
     forbidden_usernames = ['admin', 'settings', 'news', 'about', 'help',
@@ -52,42 +39,99 @@ def UniqueUsernameIgnoreCaseValidator(value):
         raise ValidationError('User with this Username already exists.')
 
 
-class SignUpForm(forms.ModelForm):
-    username = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control'}),
-        max_length=30,
+class RegisterForm(forms.Form):
+    mailid=forms.CharField(
+        widget=forms.EmailInput(attrs={'class': 'form-control','placeholder':'E-mail*','required data-validation-required-message':'Please enter a valid Email ID.'}),
         required=True,
-        help_text='Usernames may contain <strong>alphanumeric</strong>, <strong>_</strong> and <strong>.</strong> characters')  # noqa: E501
-    password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    confirm_password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
-        label="Confirm your password",
+        max_length=75,
+        )
+    password1=forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Password*', 'required data-validation-required-message':'Please enter a Password.'}),
+        required=True,
+        min_length=6,
+        )
+    confirmPassword = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Confirm Password*',
+                                        'data-validation-matches-match':'password1', 'data-validation-matches-message':"Passwords didn't match!",
+                                         'required data-validation-required-message':"Please confirm your Password."
+                                          }),
         required=True)
-    email = forms.CharField(
-        widget=forms.EmailInput(attrs={'class': 'form-control'}),
+    accountname=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Account Name*','required data-validation-required-message':'Please enter your Account Name.'}),
+        max_length=40,
         required=True,
-        max_length=75)
+        )
+    primaryaddress=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Primary Address'}),
+        max_length=100,
+        required=False
+        )
+    contactnumber=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Contact Number'}),
+        max_length=35,
+        required=False
+        )
 
-    class Meta:
-        model = User
-        exclude = ['last_login', 'date_joined']
-        fields = ['username', 'email', 'password', 'confirm_password', ]
 
     def __init__(self, *args, **kwargs):
-        super(SignUpForm, self).__init__(*args, **kwargs)
-        self.fields['username'].validators.append(ForbiddenUsernamesValidator)
-        self.fields['username'].validators.append(InvalidUsernameValidator)
-        self.fields['username'].validators.append(
+        super(RegisterForm, self).__init__(*args, **kwargs)
+        self.fields['accountname'].validators.append(ForbiddenUsernamesValidator)
+        self.fields['accountname'].validators.append(InvalidUsernameValidator)
+        self.fields['accountname'].validators.append(
             UniqueUsernameIgnoreCaseValidator)
-        self.fields['email'].validators.append(UniqueEmailValidator)
-        self.fields['email'].validators.append(SignupDomainValidator)
+        self.fields['mailid'].validators.append(UniqueEmailValidator)
 
     def clean(self):
-        super(SignUpForm, self).clean()
-        password = self.cleaned_data.get('password')
-        confirm_password = self.cleaned_data.get('confirm_password')
-        if password and password != confirm_password:
-            self._errors['password'] = self.error_class(
+        super(RegisterForm, self).clean()
+        password1 = self.cleaned_data.get('password1')
+        confirmPassword = self.cleaned_data.get('confirmPassword')
+        if password1 and password1 != confirmPassword:
+            self._errors['password1'] = self.error_class(
                 ['Passwords don\'t match'])
+        return self.cleaned_data
+
+
+class DetailedPost(forms.Form):
+    postername=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Your Name*','required data-validation-required-message':'Please enter Your Name.'}),
+        max_length=40,
+        required=True,
+        )
+    mobilenumber=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Contact Number*', 'required data-validation-required-message':'Please enter a valid Mobile Number'}),
+        min_length=11,
+        max_length=11,
+        required=True,
+        )
+    mailid=forms.CharField(
+        widget=forms.EmailInput(attrs={'class': 'form-control','placeholder':'Your E-mail'}),
+        required=False,
+        max_length=75,
+        )
+    definition=forms.CharField(
+        widget=forms.Textarea(attrs={'class':'form-control','rows':'6','placeholder':'Description of the Object*','required data-validation-required-message':'Please describe the Object that you lost/found.'}),
+        required=True,
+        max_length=300,
+    )
+    description=forms.CharField(
+        widget=forms.Textarea(attrs={'class':'form-control','rows':'10','placeholder':'Description of the corresponding Incident*','required data-validation-required-message':'Please briefly describe how you lost/found it.'}),
+        required=True,
+        max_length=600,
+    )
+    location=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'id':'locationSearchField', 'placeholder':'Location of incident*','required data-validation-required-message':'Please enter where you lost/found it.'}),
+        max_length=100,
+        required=True,
+        )
+
+    dateTime=forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M:%S'], widget=forms.DateTimeInput(format='%d/%m/%Y %H:%M:%S'))
+
+
+
+
+    def __init__(self, *args, **kwargs):
+        super(DetailedPost, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        super(DetailedPost, self).clean()
         return self.cleaned_data

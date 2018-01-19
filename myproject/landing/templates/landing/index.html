@@ -25,6 +25,9 @@
     <!-- Custom styles for this template -->
     <link href="static/landing/css/agency.min.css" rel="stylesheet">
 
+    <!--rectangular slider button style-->
+    <link href="static/landing/css/sliderbutton.css" rel="stylesheet" />
+
 
   </head>
 
@@ -95,7 +98,6 @@
         </div>
       </div>
     </header>
-aaaaa
 
     <!-- News Feed -->
     <section id="newsfeed">
@@ -567,133 +569,73 @@ aaaaa
             </li>
           </ul>
         </div>
-
-
-
-        <!--<div class="row text-center">
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">E-Commerce</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Responsive Design</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Web Security</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-        </div>-->
       </div>
     </section>
 
     <!-- post -->
     <section class="bg-light" id="post">
       <div class="container">
-       <div class="row">
+        <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Detailed post</h2>
             <h3 class="section-subheading text">Add a post containing more details</h3>
+            <form role="form" method="post" novalidate>
+              {% csrf_token %}
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" >
+                    {{detailedPost.postername}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group" data-toggle="tooltip" title="Mobile Number must be in the form: 01XXXXXXXXX">
+                      {{detailedPost.mobilenumber}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    {{detailedPost.mailid}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group" data-toggle="tooltip" title="H/nhii">
+                    {{detailedPost.definition}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" >
+                    {{detailedPost.description}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group" data-toggle="tooltip" title="Mobile Number must be in the form: 01XXXXXXXXX">
+                      {{detailedPost.location}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    {{detailedPost.dateTime}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    {{detailedPost.definition}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-        <!--<div class="row">
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Threads</h4>
-              <p class="text-muted">Illustration</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Explore</h4>
-              <p class="text-muted">Graphic Design</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Finish</h4>
-              <p class="text-muted">Identity</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Lines</h4>
-              <p class="text-muted">Branding</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Southwest</h4>
-              <p class="text-muted">Website Design</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Window</h4>
-              <p class="text-muted">Photography</p>
-            </div>
-          </div>
-        </div>-->
       </div>
     </section>
 
@@ -701,6 +643,9 @@ aaaaa
 
     <!-- Team -->
     <section class="bg-light" id="team">
+
+      <input id="searchTextField" type="text" size="50">
+
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -827,7 +772,7 @@ aaaaa
                     <input class="form-control"  id="email" type="email" placeholder="E-Mail" required data-validation-required-message="Please enter your email address.">
                     <input class="form-control" id="password" type="password" placeholder="Password" required data-validation-required-message="Please enter your passsword.">
                     <span class="input-group-btn">
-                      <button id="loginButton" style="width:80px" class="btn btn-primary btn-md" type="submit" formaction="#quickpost">Log In</button>
+                      <button id="loginButton" style="width:80px" class="btn btn-primary btn-md" type="submit" formaction="/user/profile/">Log In</button>
                     </span>
                   </div>
                 </div>
@@ -862,33 +807,34 @@ aaaaa
         <br/>
         <div class="row">
           <div class="col-lg-12">
-            <form id="regForm" name="basicData" role="form" method="post" novalidate>
+            <form role="form" method="post" novalidate>
+              {% csrf_token %}
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input class="form-control" id="mailid" type="email" placeholder="E-Mail *" required data-validation-required-message="Please enter the mail id you want to login with.">
+                    {{registerForm.mailid}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group" data-toggle="tooltip" title="Password must be atleast 6 character long">
+                    {{registerForm.password1}}
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" name="password1" id="password1" type="password" placeholder="Password *" minlength="6" data-validation-minlength-message="Password must be atleast 6 characters!" required data-validation-required-message="Please enter a password.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" id="confirmPassword" type="password" placeholder="Confirm Password *" data-validation-matches-match="password1" data-validation-matches-message="Passwords didn't match!" required data-validation-required-message="Please confirm password.">
+                    {{registerForm.confirmPassword}}
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="form-group">
-                    <input class="form-control" id="accountname" type="text" placeholder="Account Name">
+                  <div class="form-group" data-toggle="tooltip" title="Account name can contain only English letters and spaces">
+                    {{registerForm.accountname}}
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="primaryaddress" type="text" placeholder="Primary Address">
+                    {{registerForm.primaryaddress}}
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="contactnumber" type="text" placeholder="Contact Number">
+                    {{registerForm.contactnumber}}
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
@@ -967,6 +913,29 @@ aaaaa
     <!-- Plugin JavaScript -->
     <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
+    <!-- Google location autocomplete API-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script>
+      function initialize() {
+        var input = document.getElementById('locationSearchField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+
+    <!-- Datetime picker JavaScript -->
+    <script src="static/landing/js/moment-2.20.1.js"></script>
+    <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker12').datetimepicker({
+              inline: true,
+              sideBySide: true,
+          });
+      });
+    </script>
+
+
     <!-- Contact form JavaScript -->
     <script src="static/landing/js/jqBootstrapValidation.js"></script>
     <script src="static/landing/js/contact_me.js"></script>
@@ -980,9 +949,11 @@ aaaaa
 
     <script>
     function scrollTo() {
-      if(1==1)    location.hash = "#regForm" ;
+      if(2==1)    location.hash = "#regForm" ;
     }
     </script>
+
+
 
   </body>
 
