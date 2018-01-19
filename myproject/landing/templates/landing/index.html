@@ -581,12 +581,26 @@
             <h3 class="section-subheading text">Add a post containing more details</h3>
             <form role="form" method="post" novalidate>
               {% csrf_token %}
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-              </label>
-              <br/>
-              <br/>
+              <div class="col-lg-13 col-lg-offset-1">
+                <div class="input-group"  >
+                  <label class="text" style="width:410px">
+                    <h4 class=""></h4>
+                  </label>
+                  <label class="text" style="width:110px">
+                    <h4 class="">LOST</h4>
+                  </label>
+                  <label class="switch">
+                    {{detailedPost.status}}
+                    <span class="slider"></span>
+                  </label>
+                  <label class="text" style="width:20px">
+                    <h4 class=""></h4>
+                  </label>
+                  <label class="text">
+                    <h4 class="">FOUND</h4>
+                  </label>
+                </div>
+              </div>
               <br/>
               <br/>
               <div class="row">
@@ -613,24 +627,21 @@
                     {{detailedPost.description}}
                     <p class="help-block text-danger"></p>
                   </div>
-                  <div class="form-group" data-toggle="tooltip" title="Mobile Number must be in the form: 01XXXXXXXXX">
+                  <div class="form-group" data-toggle="tooltip" title="Mention the place of incident.If not sure, mention something approximate.">
                       {{detailedPost.location}}
                     <p class="help-block text-danger"></p>
                   </div>
-                  <div class="form-group">
-                    {{detailedPost.dateTime}}
+                  <div class="input-group" data-toggle="tooltip" title="Mention the place of incident.If not sure, mention something approximate.">
+                    {{detailedPost.date}}
                     <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    {{detailedPost.definition}}
+                    {{detailedPost.time}}
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
-
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" formaction="postfeed" type="submit">Post</button>
                 </div>
               </div>
             </form>
@@ -643,8 +654,6 @@
 
     <!-- Team -->
     <section class="bg-light" id="team">
-
-      <input id="searchTextField" type="text" size="50">
 
       <div class="container">
         <div class="row">
@@ -923,17 +932,6 @@
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
-
-    <!-- Datetime picker JavaScript -->
-    <script src="static/landing/js/moment-2.20.1.js"></script>
-    <script type="text/javascript">
-      $(function () {
-          $('#datetimepicker12').datetimepicker({
-              inline: true,
-              sideBySide: true,
-          });
-      });
-    </script>
 
 
     <!-- Contact form JavaScript -->

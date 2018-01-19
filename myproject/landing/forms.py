@@ -92,6 +92,10 @@ class RegisterForm(forms.Form):
 
 
 class DetailedPost(forms.Form):
+    status=forms.BooleanField(
+        required=False,
+        initial=False,
+    )
     postername=forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Your Name*','required data-validation-required-message':'Please enter Your Name.'}),
         max_length=40,
@@ -119,17 +123,31 @@ class DetailedPost(forms.Form):
         max_length=600,
     )
     location=forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control', 'id':'locationSearchField', 'placeholder':'Location of incident*','required data-validation-required-message':'Please enter where you lost/found it.'}),
+        widget=forms.TextInput(attrs={'class': 'form-control', 'id':'locationSearchField', 'placeholder':'Location of Incident*','required data-validation-required-message':'Please enter where you lost/found it.'}),
         max_length=100,
         required=True,
         )
 
-    dateTime=forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M:%S'], widget=forms.DateTimeInput(format='%d/%m/%Y %H:%M:%S'))
-
+    date=forms.DateField(
+        widget=forms.DateInput(attrs={'placeholder':'Date of Incident', 'class':'form-control','type':'text', 'onfocus':"(this.type='date')"}),
+        required=False,
+        )
+    time=forms.TimeField(
+        widget=forms.TimeInput(attrs={'placeholder':'Time of Incident', 'class':'form-control','type':'text', 'onfocus':"(this.type='time')"}),
+        required=False,
+        )
 
 
 
     def __init__(self, *args, **kwargs):
+
+        instance = kwargs.get('instance', None)
+
+        kwargs.update(initial={
+            # 'field': 'value'
+            'status': 'False'
+        })
+
         super(DetailedPost, self).__init__(*args, **kwargs)
 
     def clean(self):
