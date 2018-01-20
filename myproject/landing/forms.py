@@ -94,7 +94,6 @@ class RegisterForm(forms.Form):
 class DetailedPost(forms.Form):
     status=forms.BooleanField(
         required=False,
-        initial=False,
     )
     postername=forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Your Name*','required data-validation-required-message':'Please enter Your Name.'}),
@@ -145,7 +144,6 @@ class DetailedPost(forms.Form):
 
         kwargs.update(initial={
             # 'field': 'value'
-            'status': 'False'
         })
 
         super(DetailedPost, self).__init__(*args, **kwargs)

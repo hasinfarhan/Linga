@@ -60,8 +60,9 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-heading text-uppercase">Congratulatons!</div>
+          <div class="intro-heading text-uppercase">{%if successbool%}Congra {% else %} Marakha{% endif %}</div>
           <div class="intro-lead-in"<br>Your post has been successfully published.</div>
+          <!--<div class="intro-heading text-uppercase">{{article.mailid}}</div>-->
           <br/>
           <br/>
           <div class="col-xl-9 mx-auto">
@@ -69,10 +70,10 @@
               <div class="col-12 col-md-3">
               </div>
               <div class="col-12 col-md-3">
-                <a class="btn btn-block btn-lg btn-primary" data-toggle="tooltip" title="Go to your post" href="#quickpost" >View Post</a>
+                <a class="btn btn-block btn-lg btn-primary" data-toggle="tooltip" title="Go to your post" href="/posts/{{article.postid}}" >View Post</a>
               </div>
               <div class="col-12 col-md-3">
-                <a class="btn btn-block btn-lg btn-primary" data-toggle="tooltip" title="See feedbacks to your post" href="#quickpost" >Search Feed</a>
+                <a class="btn btn-block btn-lg btn-primary" data-toggle="tooltip" title="See feedbacks to your post" href="/posts" >Search Feed</a>
               </div>
               <div class="col-12 col-md-3">
               </div>
@@ -153,12 +154,6 @@
 
     <script>
       $(function () { $("input,textarea").jqBootstrapValidation(); } );
-    </script>
-
-    <script>
-    function scrollTo() {
-      if(2==1)    location.hash = "#regForm" ;
-    }
     </script>
 
 

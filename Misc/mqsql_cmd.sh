@@ -6,4 +6,11 @@ sudo service mysql stop
 mysql -u root -p
 password: 1953
 
+show databases;
+use 'database name';
+show tables;
+
+
+killing tcp : sudo fuser -k 8000/tcp
+
 #
