@@ -6,8 +6,8 @@ from django.db import models
 class Post(models.Model):
     status=models.BooleanField()
     posterName=models.CharField(max_length=30)
-    date=models.DateField()
-    time=models.TimeField()
+    date=models.DateField(null=True)
+    time=models.TimeField(null=True)
     location=models.CharField(max_length=100)
     mobileNumber=models.CharField(max_length=35)
     mailid=models.CharField(max_length=50,null=True)
@@ -19,7 +19,7 @@ class Post(models.Model):
         db_table = 'dummy_posts'
 
     def __str__(self):
-        return self.posterName
+        return self.id
 
     def get_absolute_url(self):
         return "/posts/%i" %self.id
@@ -36,12 +36,12 @@ class Post(models.Model):
         else:
             return False
 
-class PostComments(models.Model):
+class PostComment(models.Model):
     commenterName=models.CharField(max_length=30)
     date=models.DateField(auto_now=True)
     time=models.TimeField(auto_now=True)
     description=models.TextField(blank=False)
-    post=models.ForeignKey('Post',on_delete=models.CASCADE)
+    post=models.ForeignKey(Post,on_delete=models.CASCADE)
 
     class Meta:
         ordering = ("-date","-time")
@@ -53,11 +53,13 @@ class PostComments(models.Model):
 
 
 
+class PostImage(models.Model):
 
+   imagefile=models.ImageField(upload_to="postImages")
+   post=models.ForeignKey(Post,on_delete=models.CASCADE)
 
+   class Meta:
+       db_table = 'dummy_post_images'
 
-#class Image(models.Model):
-
-#    caption=models.CharField(max_length=50,null=True,blank=True)
-#    imagefile=models.ImageField()
-#    postedin=models.ForeignKey(Post,on_delete=models.CASCADE)
+   def __str__(self):
+       return self.imagefile

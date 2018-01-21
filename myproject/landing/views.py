@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
 from .forms import RegisterForm
 from .forms import DetailedPost
 
 
-from post.models import Post
+from post.models import Post,PostImage
 
 def index(request):
     return render(request,'landing/index.html',{'registerForm':RegisterForm(),'detailedPost':DetailedPost()})
@@ -18,7 +18,7 @@ def registerPage(request):
     return HttpResponse("<h2>Hello Pasa!</h2>")
 
 def createPost(request):
-    form=DetailedPost(request.POST)
+    form=DetailedPost(request.POST,request.FILES)
     if form.is_valid():
         mailid=form.cleaned_data.get('mailid')
         status=form.cleaned_data.get('status')
@@ -36,6 +36,11 @@ def createPost(request):
                                 date=date,time=time
                                )
         newpost.save()
-        return render(request,'landing/postfeed.html',{'post':newpost,'messg':"Congratulations",'successbool':False})
+        for f in request.FILES.getlist('image'):
+            curimg=PostImage(imagefile=f,post=newpost)
+            curimg.save()
 
-    return render(request,'landing/postfeed.html',{'messg':"Something Went Wrong",'successbool':True})
+        postId=str(newpost.id)
+        return redirect('/posts/'+postId)
+
+    return render(request,'landing/postfeed.html',{'messg':"Something Went Wrong"})

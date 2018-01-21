@@ -107,7 +107,9 @@
 
 
             <div align="left" class="">
+              <b>Tags :
               #pagla #dolar
+              </b>
             </div>
 
             <br/><br/>
@@ -122,16 +124,44 @@
 
             <br/><br/>
 
+            <div align="left" class="">
+              <b>Posted by ,</b>
+            </div>
             <h5 align="left"> {{post.posterName}} , {{post.mobileNumber}} {%if post.get_mail_status %} | {%endif%} {{post.mailid}}</h5>
+
+
+            <br /><br />
+
+            <div align="left">
+              <a class="btn btn-primary btn-xl text-uppercase" data-toggle="tooltip" title="See feedbacks to your post" href="/">Search Feed</a>
+            </div>
+
+
 
             <br/><br/><br/>
 
+            <h5  align="left"> Comments:</h5>
+            <br/>
+            <div class="col-xl-6">
+              {% block content %}
+                {% for c in comments %}
+                  <p align="left">
+                    <b>{{c.commenterName}} :</b>
+                    <br/>
+                    {{c.description}}
+                  </p>
+                  <br/>
+                {% endfor %}
+              {% endblock %}
+            </div>
 
-            <h5 align="left"> Comments:</h5>
+
+
             <br/><br/>
 
-
-            <div class="col-lg-6">
+            <h5 class="col-xl-6" align="left"> Add a comment:</h5>
+            <br/>
+            <div class="col-xl-6">
               <form role="form" method="post" novalidate>
                 {% csrf_token %}
                 <div class="form-group" data-toggle="tooltip" title="Write your name.">
@@ -143,7 +173,7 @@
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="clearfix"></div>
-                <div class="col-xl-12">
+                <div align="left">
                   <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" formaction="/posts/{{post.id}}/commentfeed" type="submit">Comment</button>
                 </div>
               </form>

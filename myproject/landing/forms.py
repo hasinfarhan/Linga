@@ -112,12 +112,12 @@ class DetailedPost(forms.Form):
         max_length=75,
         )
     definition=forms.CharField(
-        widget=forms.Textarea(attrs={'class':'form-control','rows':'6','placeholder':'Description of the Object*','required data-validation-required-message':'Please describe the Object that you lost/found.'}),
+        widget=forms.Textarea(attrs={'class':'form-control','rows':'8','placeholder':'Description of the Object*','required data-validation-required-message':'Please describe the Object that you lost/found.'}),
         required=True,
         max_length=300,
     )
     description=forms.CharField(
-        widget=forms.Textarea(attrs={'class':'form-control','rows':'10','placeholder':'Description of the corresponding Incident*','required data-validation-required-message':'Please briefly describe how you lost/found it.'}),
+        widget=forms.Textarea(attrs={'class':'form-control','rows':'8','placeholder':'Description of the corresponding Incident*','required data-validation-required-message':'Please briefly describe how you lost/found it.'}),
         required=True,
         max_length=600,
     )
@@ -128,11 +128,13 @@ class DetailedPost(forms.Form):
         )
 
     date=forms.DateField(
-        widget=forms.DateInput(attrs={'placeholder':'Date of Incident', 'class':'form-control','type':'text', 'onfocus':"(this.type='date')"}),
-        required=False,
+        widget=forms.DateInput(attrs={'placeholder':'Date of Incident', 'class':'form-control','type':'text','required data-validation-required-message':'Please enter when you lost/found it.', 'onfocus':"(this.type='date')"}),
         )
     time=forms.TimeField(
-        widget=forms.TimeInput(attrs={'placeholder':'Time of Incident', 'class':'form-control','type':'text', 'onfocus':"(this.type='time')"}),
+        widget=forms.TimeInput(attrs={'placeholder':'Time of Incident', 'class':'form-control','type':'text', 'required data-validation-required-message':'Please enter when you lost/found it.','onfocus':"(this.type='time')"}),
+        )
+    image=forms.ImageField(
+        widget=forms.FileInput(attrs={'placeholder':'Visual of the Object', 'class':'form-control','multiple':'true','type':'text','onfocus':"(this.type='file')"}),
         required=False,
         )
 
