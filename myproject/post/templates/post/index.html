@@ -126,8 +126,29 @@
 
             <br/><br/><br/>
 
-            <form role="form" method="post" novalidate>
-              {% csrf_token %}
+
+            <h5 align="left"> Comments:</h5>
+            <br/><br/>
+
+
+            <div class="col-lg-6">
+              <form role="form" method="post" novalidate>
+                {% csrf_token %}
+                <div class="form-group" data-toggle="tooltip" title="Write your name.">
+                  {{commentform.postername}}
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group" data-toggle="tooltip" title="Write your comment.">
+                    {{commentform.description}}
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xl-12">
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" formaction="/posts/{{post.id}}/commentfeed" type="submit">Comment</button>
+                </div>
+              </form>
+            </div>
+
 
           </div>
         </div>

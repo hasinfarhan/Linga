@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns=[
     url(r'^(?P<postId>\d+)$',views.index,name='index'),
+    url(r'^(?P<postId>\d+)/commentfeed$',views.comment,name='comment'),
 
     ]

@@ -41,7 +41,7 @@ class PostComments(models.Model):
     date=models.DateField(auto_now=True)
     time=models.TimeField(auto_now=True)
     description=models.TextField(blank=False)
-    postid=models.ForeignKey(Post,on_delete=models.CASCADE)
+    post=models.ForeignKey('Post',on_delete=models.CASCADE)
 
     class Meta:
         ordering = ("-date","-time")

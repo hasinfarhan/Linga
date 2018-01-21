@@ -9,7 +9,7 @@ class CommentForm(forms.Form):
         required=True,
         )
     description=forms.CharField(
-        widget=forms.Textarea(attrs={'class':'form-control','rows':'2','placeholder':'Write Comment*','required data-validation-required-message':'Cannot put blank comment.'}),
+        widget=forms.Textarea(attrs={'class':'form-control','rows':'4','placeholder':'Write Comment*','required data-validation-required-message':'Cannot put blank comment.'}),
         required=True,
         max_length=300,
     )
