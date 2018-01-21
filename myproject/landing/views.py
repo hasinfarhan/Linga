@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from .forms import RegisterForm
 from .forms import DetailedPost
 
-#from post.models import Post
-from post.models import DummyPost
+
+from post.models import Post
 
 def index(request):
     return render(request,'landing/index.html',{'registerForm':RegisterForm(),'detailedPost':DetailedPost()})
@@ -29,13 +29,13 @@ def createPost(request):
         time=form.cleaned_data.get('time')
         defintion=form.cleaned_data.get('definition')
         description=form.cleaned_data.get('description')
-        post_count=DummyPost.objects.filter().count()
+        #post_count=DummyPost.objects.filter().count()
 
-        newdummypost=DummyPost(postid=post_count+1,mailid=mailid,status=status,posterName=postername,mobileNumber=mobilenumber,location=location,defintion=defintion,
+        newpost=Post(mailid=mailid,status=status,posterName=postername,mobileNumber=mobilenumber,location=location,defintion=defintion,
                                 description=description,
                                 date=date,time=time
                                )
-        newdummypost.save()
-        return render(request,'landing/postfeed.html',{'article':newdummypost,'messg':"Congratulations",'successbool':False})
+        newpost.save()
+        return render(request,'landing/postfeed.html',{'post':newpost,'messg':"Congratulations",'successbool':False})
 
     return render(request,'landing/postfeed.html',{'messg':"Something Went Wrong",'successbool':True})

@@ -9,23 +9,23 @@
     <meta name="author" content="">
 
     <title>Congratulations</title>
-    <link rel="icon" href="static/landing/img/lingaIcon.png" type="image/png">
+    <link rel="icon" href="/static/landing/img/lingaIcon.png" type="image/png">
 
     <!-- Bootstrap core CSS -->
-    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="static/landing/css/agency.min.css" rel="stylesheet">
+    <link href="/static/landing/css/agency.min.css" rel="stylesheet">
 
     <!--rectangular slider button style-->
-    <link href="static/landing/css/sliderbutton.css" rel="stylesheet" />
+    <link href="/static/landing/css/sliderbutton.css" rel="stylesheet" />
 
 
   </head>
@@ -37,7 +37,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <img src="static/landing/img/lingaIcon.png" alt="Icon" style="width:40px;height:40px;">
+        <img src="/static/post/img/lingaIcon.png" alt="Icon" style="width:40px;height:40px;">
         <a class="navbar-brand js-scroll-trigger" href="/">LinGa</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
@@ -46,11 +46,24 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="">Run Analytics</a>
+              <a class="nav-link js-scroll-trigger" href="/#quickpost">Quick Post</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/">Home</a>
+              <a class="nav-link js-scroll-trigger" href="/#post">Detailed Post</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/#newsfeed">News Feed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/#team">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/#login">Log In/Register</a>
+            </li>
+
           </ul>
         </div>
       </div>
@@ -60,8 +73,8 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-heading text-uppercase">{%if successbool%}Congra {% else %} Marakha{% endif %}</div>
-          <div class="intro-lead-in"<br>Your post has been successfully published.</div>
+          <div class="intro-heading text-uppercase">{{messg}}</div>
+          <div class="intro-lead-in"<br>Your post {%if successbool%}has {% else %} hasn't{% endif %} been successfully published.</div>
           <!--<div class="intro-heading text-uppercase">{{article.mailid}}</div>-->
           <br/>
           <br/>
@@ -70,7 +83,7 @@
               <div class="col-12 col-md-3">
               </div>
               <div class="col-12 col-md-3">
-                <a class="btn btn-block btn-lg btn-primary" data-toggle="tooltip" title="Go to your post" href="/posts/{{article.postid}}" >View Post</a>
+                <a class="btn btn-block btn-lg btn-primary" data-toggle="tooltip" title="Go to your post" href="/posts/{{post.id}}" >View Post</a>
               </div>
               <div class="col-12 col-md-3">
                 <a class="btn btn-block btn-lg btn-primary" data-toggle="tooltip" title="See feedbacks to your post" href="/posts" >Search Feed</a>
@@ -127,11 +140,11 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="static/vendor/jquery/jquery.min.js"></script>
-    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Google location autocomplete API-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
@@ -146,11 +159,11 @@
 
 
     <!-- Contact form JavaScript -->
-    <script src="static/landing/js/jqBootstrapValidation.js"></script>
-    <script src="static/landing/js/contact_me.js"></script>
+    <script src="/static/landing/js/jqBootstrapValidation.js"></script>
+    <script src="/static/landing/js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="static/landing/js/agency.min.js"></script>
+    <script src="/static/landing/js/agency.min.js"></script>
 
     <script>
       $(function () { $("input,textarea").jqBootstrapValidation(); } );
