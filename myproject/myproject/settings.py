@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'userprofile',
     'pageprofile',
     'post',
+    'searchEngine',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
