@@ -64,6 +64,7 @@
               <a class="nav-link js-scroll-trigger" href="/#team">About Us</a>
             </li>
             <li class="nav-item">
+              <!--<a class="nav-link js-scroll-trigger" href="/#login">Log In/Register</a>-->
               <a class="nav-link js-scroll-trigger" href="/#login">{% if request.session.name%} {{request.session.name}} {% else %} Log In/Register {% endif %}</a>
             </li>
 
@@ -98,54 +99,99 @@
       </div>
     </header>
 
+    <!-- profile  -->
+    <section id="detprofile">
+     <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Profile Info</h2>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="col-lg-12">
+          <form role="form" method="post" novalidate>
+            <div class="row">
 
 
-    <!-- post -->
-    <section id="results">
-      <div class="container">
-        <div align="center">
-          <div class="btn-group btn-group-lg">
-            <div class="row" >
-              <a href="/searchresults/posts/{{tokenstr}}" class="btn btn-primary" style="width:250px"> Posts</a>
-              <a href="/searchresults/profiles/{{tokenstr}}" class="btn btn-primary" style="width:250px"> Profiles</a>
+                <div class="col-md-6">
+                   <h4>Post History</h4><br>
+                    <ul class="list-inline" >
+                    {% for i in post %}
+                      <a href="/posts/{{i.id}}" class="">
+                        <li class="" >
+
+                          Status: <font color="{%if i.status %} green {%else%} #2196F3 {%endif%}">{{i.get_status}}</font> <br />
+                          <font color="black">{{i.posterName}} <font color="yellow">|</font> {{i.time}} <font color="yellow">|</font> {{i.date}} <br /> {{i.location}} </font>
+
+
+                          <font color="black"><b>Tags: </b></font>
+                          <font color="white"><b>f</b></font>
+
+                          {% for j in i.get_definition_tags %}
+                            {% if j %}
+                              #
+                              <font color="black"><b>{{j}}</b></font>
+                              <font color="white"><b>f</b></font>
+                            {% endif %}
+                          {% endfor %}
+                        </li>
+                     </a>
+                    <br />
+                    <br />
+                    {% endfor %}
+                    </ul>
+
+                </div>
+
+
+
+              <div class="col-md-6">
+                <div>
+                  <h5> Name  </h5>
+                  {{request.session.name}}<br><br>
+                </div>
+                <div>
+                  <h5> Mail ID</h5>
+                  {{request.session.mailid}}<br><br>
+                </div>
+                <div>
+                  <h5>Address</h5>
+                  {{request.session.primaryaddress}}<br><br>
+                </div>
+                <div>
+                  <h5>Contact Number</h5>
+                  {{request.session.contactnumber}}
+                </div>
+              </div>
+
+
+
+              <div class="clearfix"></div>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <font color="red">
+              {% if registerForm.non_field_errors %}
+                <ul class='form-errors'>
+                    {% for error in registerForm.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+              {% endif %}
+              </font>
+
+                </div>
+              </form>
+              <br><br><br>
             </div>
           </div>
+
+
         </div>
-
-        <br />
-        <br />
-
-        <div   align="left">
-          <ul class="list-inline" >
-          {% for i in post %}
-            <a href="/posts/{{i.id}}" class="">
-              <li class="" >
-
-                <h5 > Status: <font color="{%if i.status %} green {%else%} #2196F3 {%endif%}">{{i.get_status}}</font> <br />
-                <h5 > <font color="black">{{i.posterName}} <font color="yellow">|</font> {{i.time}} <font color="yellow">|</font> {{i.date}} <br /> {{i.location}} </font></h5>
-
-
-                <font color="black"><b>Tags: </b></font>
-                <font color="white"><b>f</b></font>
-
-                {% for j in i.get_definition_tags %}
-                  {% if j %}
-                    #
-                    <font color="black"><b>{{j}}</b></font>
-                    <font color="white"><b>f</b></font>
-                  {% endif %}
-                {% endfor %}
-              </li>
-           </a>
-          <br />
-          <br />
-          {% endfor %}
-          </ul>
-        </div>
-
-
-      </div>
-    </section>
+      </section>
 
 
 

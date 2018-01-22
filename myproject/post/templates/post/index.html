@@ -27,6 +27,12 @@
     <!--rectangular slider button style-->
     <link href="/static/post/css/sliderbutton.css" rel="stylesheet" />
 
+    <style>
+      a:hover {
+
+      }
+    </style>
+
 
   </head>
 
@@ -58,10 +64,7 @@
               <a class="nav-link js-scroll-trigger" href="/#team">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/#contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/#login">Log In/Register</a>
+              <a class="nav-link js-scroll-trigger" href="/#login">{% if request.session.name%} {{request.session.name}} {% else %} Log In/Register {% endif %}</a>
             </li>
 
           </ul>
@@ -75,16 +78,21 @@
       <div class="container">
         <div class="intro-text">
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="text" class="form-control form-control-lg" placeholder="Item(i.e. SchoolBag) or Page(i.e. BUET) ...">
-                </div>
-                <div class="col-12 col-md-3">
-                  <a class="btn btn-block btn-lg btn-primary" href="#quickpost" >Search</a>
-                  <!--<button type="submit" class="btn btn-block btn-lg btn-primary" formtarget= "" >Search </button>-->
+            <form role="form" method="post" novalidate>
+              {% csrf_token %}
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-12 col-md-9 mb-2 mb-md-">
+                    {{searchForm.searchDetail}}
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-12 col-md-3">
+                    <button class="btn btn-block btn-lg btn-primary" formaction="/searchTokenize" type="submit">Search</button>
+                  </div>
                 </div>
               </div>
+
             </form>
           </div>
         </div>
@@ -96,6 +104,27 @@
     <!-- News Feed -->
     <section id="details">
       <div class="container">
+
+        <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">You really want to delete this post?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <a href="/posts/{{post.id}}/delete" data-toggle="confirmation"  class="btn btn-primary" style="width:150px">Proceed</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Status : <font color="{%if post.status %} green {%else%} #2196F3 {%endif%}">{{post.get_status}}</font></h2>
@@ -117,7 +146,24 @@
             <div align="left" class="">
               {{post.defintion}}
             </div>
-            <br/><br/>
+            <br/>
+
+            <div   align="center">
+              <ul class="list-inline" >
+              {% for i in images %}
+                <li class="list-inline-item" >
+                  <div class="col-xs-4" >
+                    <div class="thumbnail">
+                      <img src={{i.imagefile.url}} style="width:160px;height:140px;"/>
+                    </div>
+                  </div>
+                </li>
+              {% endfor %}
+              </ul>
+            </div>
+
+
+            <br/>
             <div align="left" class="">
               {{post.description}}
             </div>
@@ -132,8 +178,14 @@
 
             <br /><br />
 
-            <div align="left">
-              <a class="btn btn-primary btn-xl text-uppercase" data-toggle="tooltip" title="See feedbacks to your post" href="/">Search Feed</a>
+            <div align="center">
+              <div class="btn-group btn-group-lg">
+                <div class="row" >
+                  <a href="/searchresults/posts/{{tokenstr}}" data-toggle="tooltip" title="See feedbacks to your post" class="btn btn-primary" style="width:150px"> Search Feed</a>
+                  <a href="/searchresults/posts/{{tokenstr}}" data-toggle="tooltip" title="Update to your post" class="btn btn-primary" style="width:150px"> Update Post</a>
+                  <a  href="#confirm"  data-toggle="modal" class="btn btn-primary" style="width:150px"> Delete Post</a>
+                </div>
+              </div>
             </div>
 
 
@@ -143,16 +195,14 @@
             <h5  align="left"> Comments:</h5>
             <br/>
             <div class="col-xl-6">
-              {% block content %}
-                {% for c in comments %}
-                  <p align="left">
-                    <b>{{c.commenterName}} :</b>
-                    <br/>
-                    {{c.description}}
-                  </p>
+              {% for c in comments %}
+                <p align="left">
+                  <b>{{c.commenterName}} :</b>
                   <br/>
-                {% endfor %}
-              {% endblock %}
+                  {{c.description}}
+                </p>
+                <br/>
+              {% endfor %}
             </div>
 
 
