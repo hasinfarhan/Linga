@@ -206,6 +206,162 @@ class MoneyBag(forms.Form):
         return self.cleaned_data
 
 
+class phone(forms.Form):
+    status=forms.BooleanField(
+        required=False,
+    )
+    postername=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Your Name*','required data-validation-required-message':'Please enter Your Name.'}),
+        max_length=40,
+        required=True,
+        )
+    mobilenumber=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Contact Number*', 'required data-validation-required-message':'Please enter a valid Mobile Number'}),
+        min_length=11,
+        max_length=11,
+        required=True,
+        )
+    mailid=forms.CharField(
+        widget=forms.EmailInput(attrs={'class': 'form-control','placeholder':'Your E-mail'}),
+        required=False,
+        max_length=75,
+        )
+    location=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Location of Incident*','required data-validation-required-message':'Please enter where you lost/found it.'}),
+        max_length=100,
+        required=True,
+        )
+    brand=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Brand of your Phone'}),
+        max_length=100,
+        required=False,
+        )
+    def __init__(self, *args, **kwargs):
+
+        instance = kwargs.get('instance', None)
+
+        kwargs.update(initial={
+            # 'field': 'value'
+        })
+
+        super(phone, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        super(phone, self).clean()
+        return self.cleaned_data
+
+class passport(forms.Form):
+    status=forms.BooleanField(
+        required=False,
+    )
+    postername=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Your Name*','required data-validation-required-message':'Please enter Your Name.'}),
+        max_length=40,
+        required=True,
+        )
+    mobilenumber=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Contact Number*', 'required data-validation-required-message':'Please enter a valid Mobile Number'}),
+        min_length=11,
+        max_length=11,
+        required=True,
+        )
+    mailid=forms.CharField(
+        widget=forms.EmailInput(attrs={'class': 'form-control','placeholder':'Your E-mail'}),
+        required=False,
+        max_length=75,
+        )
+    location=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Location of Incident*','required data-validation-required-message':'Please enter where you lost/found it.'}),
+        max_length=100,
+        required=True,
+        )
+    country=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Mention your nationality'}),
+        max_length=100,
+        required=False,
+        )
+    def __init__(self, *args, **kwargs):
+
+        instance = kwargs.get('instance', None)
+
+        kwargs.update(initial={
+            # 'field': 'value'
+        })
+
+        super(passport, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        super(passport, self).clean()
+        return self.cleaned_data
+
+class nid(forms.Form):
+    status=forms.BooleanField(
+        required=False,
+    )
+    postername=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Your Name*','required data-validation-required-message':'Please enter Your Name.'}),
+        max_length=40,
+        required=True,
+        )
+    mobilenumber=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Contact Number*', 'required data-validation-required-message':'Please enter a valid Mobile Number'}),
+        min_length=11,
+        max_length=11,
+        required=True,
+        )
+    mailid=forms.CharField(
+        widget=forms.EmailInput(attrs={'class': 'form-control','placeholder':'Your E-mail'}),
+        required=False,
+        max_length=75,
+        )
+    location=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Location of Incident*','required data-validation-required-message':'Please enter where you lost/found it.'}),
+        max_length=100,
+        required=True,
+        )
+    country=forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Mention your nationality or institution'}),
+        max_length=100,
+        required=False,
+        )
+    def __init__(self, *args, **kwargs):
+
+        instance = kwargs.get('instance', None)
+
+        kwargs.update(initial={
+            # 'field': 'value'
+        })
+
+        super(nid, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        super(nid, self).clean()
+        return self.cleaned_data
+
+
+
+class FilterSearch(forms.Form):
+    status=forms.BooleanField(
+        required=False,
+    )
+
+
+
+
+    def __init__(self, *args, **kwargs):
+
+        instance = kwargs.get('instance', None)
+
+        kwargs.update(initial={
+            # 'field': 'value'
+        })
+
+        super(FilterSearch, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        super(FilterSearch, self).clean()
+        return self.cleaned_data
+
 
 
 

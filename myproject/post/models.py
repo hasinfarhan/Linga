@@ -23,7 +23,8 @@ def NormalValidator(value):
                             'to','from','than','that','what','into','bad','was','is','am','with','ago','recent','very','much',
                             'cost','or','else','if','you','i','u','they','he','she','end','doing','cut','person','interest',
                             'away','wait','again','before','less','more','0','1','10','100','another','it',"it's",'are','s','my','your',
-                            'lost','found'
+                            'lost','found','have','has','had','will','g','gg','ggg','gggg','ggggg','a','aa','aaa'',aaaaa','aaaa','enter',
+                            'feel','pass','travel',
                            ]
 
     if value.lower() in normal:
@@ -78,10 +79,12 @@ class Post(models.Model):
         ans=""
         for s in tags:
             if not NormalValidator(s):
-                ans+=s
+                ans+=s.lower()
             ans+="_"
 
         fin=ans.split("_")
+        fin=list(filter(None,fin))
+
         wow=list(set(fin))
         return wow
 
@@ -97,7 +100,7 @@ class Post(models.Model):
         ans=""
         for s in tags:
             if not NormalValidator(s):
-                ans+=s
+                ans+=s.lower()
             ans+="_"
 
         fin=ans.split("_")
@@ -105,6 +108,49 @@ class Post(models.Model):
 
         wow=list(set(fin))
         return wow
+    def get_location_tags(self):
+        ret=""
+        for c in self.location:
+            if (c>='a' and c<='z') or (c>='A' and c<='Z') or (c>='0' and c<='9'):
+                ret+=c
+            else:
+                ret+='_'
+        tags=ret.split("_")
+
+        ans=""
+        for s in tags:
+            if not NormalValidator(s):
+                ans+=s.lower()
+            ans+="_"
+
+        fin=ans.split("_")
+        fin=list(filter(None,fin))
+
+        wow=list(set(fin))
+        return wow
+
+
+    def weight_of_matches(self,tokenList):
+        ret=0
+
+        ans=""
+        for s in tokenList:
+            if not NormalValidator(s):
+                ans+=s.lower()
+            else:
+                ans+="_"
+
+        fin=ans.split("_")
+        fin=list(filter(None,fin))
+        wow=list(set(fin))
+
+        for t in wow:
+            if t in self.get_definition_tags() or t in self.get_description_tags() or t in self.get_location_tags() or self.defintion.lower() in t or self.description.lower() in t or self.location.lower() in t:
+                ret=ret+1
+
+        return ret
+
+
 
 
 

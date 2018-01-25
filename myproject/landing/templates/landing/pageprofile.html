@@ -123,7 +123,7 @@
                         <li class="" >
 
                           Status: <font color="{%if i.status %} green {%else%} #2196F3 {%endif%}">{{i.get_status}}</font> <br />
-                          <font color="black">{{i.posterName}} <font color="yellow">|</font> {{i.time}} <font color="yellow">|</font> {{i.date}} <br /> {{i.location}} </font>
+                          <font color="black">{{i.time}}<font color="yellow">|</font> {{i.date}} <br /> {{i.location}} </font>
 
 
                           <font color="black"><b>Tags: </b></font>
@@ -150,19 +150,19 @@
               <div class="col-md-6">
                 <div>
                   <h5> Name  </h5>
-                  {{request.session.name}}<br><br>
+                  {{userpro.accountname}}<br><br>
                 </div>
                 <div>
                   <h5> Mail ID</h5>
-                  {{request.session.mailid}}<br><br>
+                  {{userpro.mailid}}<br><br>
                 </div>
                 <div>
                   <h5>Address</h5>
-                  {{request.session.primaryaddress}}<br><br>
+                  {{userpro.primaryaddress}}<br><br>
                 </div>
                 <div>
                   <h5>Contact Number</h5>
-                  {{request.session.contactnumber}}
+                  {{userpro.contactnumber}}
                 </div>
               </div>
 
@@ -173,15 +173,6 @@
               <br/>
               <br/>
               <br/>
-              <font color="red">
-              {% if registerForm.non_field_errors %}
-                <ul class='form-errors'>
-                    {% for error in registerForm.non_field_errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-              {% endif %}
-              </font>
 
                 </div>
               </form>
@@ -269,7 +260,7 @@
 
     <script>
     function scrollTo() {
-      if(1==1)    location.hash = "#results" ;
+      if(1==1)    location.hash = "#detprofile" ;
     }
     </script>
 

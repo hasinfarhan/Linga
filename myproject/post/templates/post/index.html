@@ -136,9 +136,15 @@
 
 
             <div align="left" class="">
-              <b>Tags :
-              #pagla #dolar
-              </b>
+              <font color="black"><b>Tags: </b></font>
+              <font color="white"><b>f</b></font>
+              {% for j in post.get_definition_tags %}
+                {% if j %}
+                  #
+                  <font color="black"><b>{{j}}</b></font>
+                  <font color="white"><b>f</b></font>
+                {% endif %}
+              {% endfor %}
             </div>
 
             <br/><br/>
@@ -181,9 +187,10 @@
             <div align="center">
               <div class="btn-group btn-group-lg">
                 <div class="row" >
-                  <a href="/searchresults/posts/{{tokenstr}}" data-toggle="tooltip" title="See feedbacks to your post" class="btn btn-primary" style="width:150px"> Search Feed</a>
-                  <a href="/searchresults/posts/{{tokenstr}}" data-toggle="tooltip" title="Update to your post" class="btn btn-primary" style="width:150px"> Update Post</a>
-                  <a  href="#confirm"  data-toggle="modal" class="btn btn-primary" style="width:150px"> Delete Post</a>
+                  <!--<a href="/searchresults/posts/{{tokenstr}}" data-toggle="tooltip" title="See feedbacks to your post" class="btn btn-primary" style="width:150px"> Search Feed</a>-->
+                  {% if picker%}
+                    <a  href="#confirm"  data-toggle="modal" class="btn btn-primary" style="width:150px"> Delete Post</a>
+                  {% endif %}
                 </div>
               </div>
             </div>

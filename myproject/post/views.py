@@ -23,7 +23,11 @@ def index(request,postId):
     post=Post.objects.get(id=postId)
     comments=PostComment.objects.filter(post=post)
     images=PostImage.objects.filter(post=post)
-    return render(request,'post/index.html',{'post':post,'comments':comments,'images':images,'commentform':CommentForm(),'searchForm':SearchForm()})
+    picker=False
+    if post.mailid==request.session['mailid']:
+        picker=True
+
+    return render(request,'post/index.html',{'post':post,'comments':comments,'images':images,'commentform':CommentForm(),'searchForm':SearchForm(),'picker':picker})
 
 def comment(request,postId):
     form=CommentForm(request.POST)
