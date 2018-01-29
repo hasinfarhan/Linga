@@ -40,8 +40,6 @@ EMAIL_PORT=587
 
 INSTALLED_APPS = [
     'landing',
-    'userprofile',
-    'pageprofile',
     'post',
     'searchEngine',
     'django.contrib.admin',

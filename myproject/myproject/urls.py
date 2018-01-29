@@ -21,8 +21,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('landing.urls')),
-    url(r'^user/profile/',include('userprofile.urls')),
-    url(r'^page/profile/',include('pageprofile.urls')),
     url(r'^posts/',include('post.urls')),
     url(r'^searchresults/',include('searchEngine.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
