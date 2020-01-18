@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -5,26 +7,18 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.conf import settings
 
+from post.models import Post, PostImage
+
 from .forms import RegisterForm
 from .forms import DetailedPost
 from .forms import SearchForm
 from .forms import MoneyBag, LoginForm, phone, passport, nid
 
-from post.models import Post, PostImage
 from .models import Profile
 
-from datetime import date
-from datetime import datetime
 
 
 def index(request):
-    if not request.session:
-        request.session['name'] = ""
-        request.session['primaryaddress'] = ""
-        request.session['contactnumber'] = ""
-        request.session['mailid'] = ""
-        request.session['id'] = ""
-
     newposts = Post.objects.all()[:5]
     mailid = request.session['mailid']
     posts = Post.objects.filter(mailid=mailid)[:3]

@@ -4,6 +4,8 @@
     "python.linting.pylintEnabled": true,
     "python.linting.pylintArgs": [
        "--load-plugins",
-       "pylint_django"
+       "pylint_django",
+       "--disable=C0103, C0114, C0115, C0116",
+       "--max-line-length=240"
     ],
 }
