@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'linga_primary_database',
+        'NAME': 'linga_db_primary',
 	'USER':  'root',
-	'PASSWORD':  '1953',
+	'PASSWORD':  'Rache.1953',
     }
 }
 
