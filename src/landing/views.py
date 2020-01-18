@@ -10,7 +10,7 @@ from .forms import DetailedPost
 from .forms import SearchForm
 from .forms import MoneyBag, LoginForm, phone, passport, nid
 
-from ..post.models import Post, PostImage
+from post.models import Post, PostImage
 from .models import Profile
 
 from datetime import date
