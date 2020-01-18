@@ -10,6 +10,7 @@ pylint = "*"
 django = "*"
 mysqlclient = "*"
 pillow = "*"
+pylint-django = "*"
 
 [requires]
 python_version = "3.7"

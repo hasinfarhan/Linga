@@ -1,8 +1,6 @@
 1. Install python3.7
 2. Install pip3 : sudo apt install python3-pip
-3. Install pipenv : sudo python3.7 -m pip install pipenv
-4. Install pycharm : sudo snap install pycharm-community --classic
-    and set interpreter option to python3.7 and pipenv
+3. Install pipenv : sudo python3.7 -m pip install pipenv and start pipenv in the project directory
 5. Install gitkraken :
     wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
     sudo apt-get install ./gitkraken-amd64.deb
