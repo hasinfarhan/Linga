@@ -19,14 +19,24 @@ from .models import Profile
 
 
 def index(request):
+    # newposts = Post.objects.all()[:5]
+    # mailid = request.session['mailid']
+    # posts = Post.objects.filter(mailid=mailid)[:3]
+    # detailedPost = DetailedPost()
+    # detailedPost.fields['postername'].initial = request.session['name']
+    # detailedPost.fields['mailid'].initial = mailid
+    # detailedPost.fields['mobilenumber'].initial = request.session['contactnumber']
+    # detailedPost.fields['location'].initial = request.session['primaryaddress']
+
     newposts = Post.objects.all()[:5]
-    mailid = request.session['mailid']
+    mailid = 'mail'
     posts = Post.objects.filter(mailid=mailid)[:3]
     detailedPost = DetailedPost()
-    detailedPost.fields['postername'].initial = request.session['name']
+    detailedPost.fields['postername'].initial = 'name'
     detailedPost.fields['mailid'].initial = mailid
-    detailedPost.fields['mobilenumber'].initial = request.session['contactnumber']
-    detailedPost.fields['location'].initial = request.session['primaryaddress']
+    detailedPost.fields['mobilenumber'].initial = 'contact'
+    detailedPost.fields['location'].initial = 'address'
+
 
     return render(request, 'landing/index.html',
                   {'post': posts, 'loginForm': LoginForm(), 'registerForm': RegisterForm(),

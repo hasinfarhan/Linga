@@ -35,9 +35,9 @@ def comment(request,postId):
 
 
     if form.is_valid():
-        postername=form.cleaned_data.get('postername')
-        description=form.cleaned_data.get('description')
-        comment=PostComment(commenterName=postername,
+        postername = form.cleaned_data.get('postername')
+        description = form.cleaned_data.get('description')
+        comment = PostComment(commenterName=postername,
                                 description=description,
                                 post=post
                                )
