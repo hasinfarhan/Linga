@@ -5,7 +5,9 @@ Follow this commands : https://docs.docker.com/install/linux/docker-ce/ubuntu/
 docker ps
 
 #Start a container:
-docker run --name my_docker image_name # for example : docker run --name janusgraph-default janusgraph/janusgraph:latest
+docker run --name my_docker image_name
+#to expose port to host, run : 
+docker run -p container_port:host_port --name my_docker image_name
 
 #getting bash shell to a running container:
 docker exec -it <container name> /bin/bash
