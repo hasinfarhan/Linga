@@ -86,12 +86,19 @@ WSGI_APPLICATION = 'linga-demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'linga_db_primary',
+# 	'USER':  'root',
+# 	'PASSWORD':  'Rache.1953',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'linga_db_primary',
-	'USER':  'root',
-	'PASSWORD':  'Rache.1953',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
