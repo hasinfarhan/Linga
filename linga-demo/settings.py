@@ -25,7 +25,7 @@ SECRET_KEY = '5cc3ei5$g4hmdzeq_b!j44ub*9t^h^g*hxn!_i9@j@&w&y06nj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://linga-demo.herokuapp.com/']
 
 #gmail
 EMAIL_USE_TLS = True
