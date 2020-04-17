@@ -7,7 +7,7 @@
 6. Install mysql server :
     sudo apt-get install mysql-server
     sudo mysql_secure_installation utility
-    follow mysql_repo.sh commands and update user and password in src/myproject/settings.py
+    follow mysql_repo.sh commands and update user and password in src/linga/settings.py
     sudo apt install mysql-workbench
 7. Install mysql client dependencies :
     sudo apt install libmysqlclient-dev
