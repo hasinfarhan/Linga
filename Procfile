@@ -1,1 +1,1 @@
-web: gunicorn linga.wsgi --log-file -
+web: gunicorn linga-demo.wsgi --log-file -
