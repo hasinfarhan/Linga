@@ -24,7 +24,7 @@ def NormalValidator(value):
                             'cost','or','else','if','you','i','u','they','he','she','end','doing','cut','person','interest',
                             'away','wait','again','before','less','more','0','1','10','100','another','it',"it's",'are','s','my','your',
                             'lost','found','have','has','had','will','g','gg','ggg','gggg','ggggg','a','aa','aaa'',aaaaa','aaaa','enter',
-                            'feel','pass','travel',
+                            'feel','pass','travel', 'sex',
                            ]
 
     if value.lower() in normal:
